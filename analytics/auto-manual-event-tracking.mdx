@@ -68,12 +68,19 @@ Call this method in `onCreate()`.
 
 <CodeGroup>
 
-```javascript Kotlin / Java
+```kotlin Kotlin
 SetAnalytics.getInstance()
   .setActivityEvent(
     screenName: String,
     screenClass: Activity
   )
+```
+```java Java
+SetAnalytics.getInstance()
+  .setActivityEvent(
+   String screenName,
+   Activity screenClass
+  );
 ```
 
 </CodeGroup>
@@ -112,7 +119,7 @@ Example of Screen Viewed
 
 <CodeGroup>
 
-```javascript Kotlin
+```kotlin Kotlin
 SetAnalytics.getInstance()
     .setActivityEvent(
         "MainActivity",    // screenName
@@ -120,12 +127,12 @@ SetAnalytics.getInstance()
     )
 ```
 
-```javascript Java
+```java Java
 SetAnalytics.getInstance()
     .setActivityEvent(
-        "MainActivity", // screenName
-        this           // screenClass
-    );
+        "MainActivity",  // screenName
+        this            // screenClass
+        );
 ```
 
 </CodeGroup>
@@ -138,7 +145,7 @@ Call this method in `onCreateView()`.
 
 <CodeGroup>
 
-```javascript Kotlin / Java
+```kotlin Kotlin
 SetAnalytics.getInstance()
   .setFragmentEvent(
     screenName: String,
@@ -146,6 +153,16 @@ SetAnalytics.getInstance()
     fragmentClass: Fragment,
     fragmentIndex: Int
   )
+```
+
+```java Java
+SetAnalytics.getInstance()
+  .setFragmentEvent(
+   String screenName,
+   Activity screenClass,
+   Fragment fragmentClass,
+   Int fragmentIndex
+  );
 ```
 
 </CodeGroup>
@@ -195,7 +212,7 @@ Example of Fragment Viewed
 
 <CodeGroup>
 
-```javascript Kotlin (Example 1)
+```kotlin Kotlin (Example 1)
 activity?.let {
     SetAnalytics.getInstance()
         .setFragmentEvent(
@@ -207,7 +224,7 @@ activity?.let {
 }
 ```
 
-```javascript Kotlin (Example 2)
+```kotlin Kotlin (Example 2)
 activity?.let { activity ->
   SetAnalytics.getInstance()
       .setFragmentEvent(
@@ -219,14 +236,14 @@ activity?.let { activity ->
 }
 ```
 
-```javascript Java
+```java Java
 SetAnalytics.getInstance()
     .setFragmentEvent(
-        "fragmentName",   // screenName
-        getActivity(),    // screenClass
-        this,             // fragmentClass
-        0                 // fragmentIndex
-    );
+        "fragmentName", // screenName
+        getActivity(),  // screenClass
+        this,           // fragmentClass
+        0               // fragmentIndex
+        );
 ```
 
 </CodeGroup>
@@ -237,7 +254,7 @@ SetAnalytics.getInstance()
 
 <CodeGroup>
 
-```javascript Kotlin / Java
+```kotlin Kotlin
 SetAnalytics.getInstance()
   .setTabEvent(
     tabName: String,
@@ -245,6 +262,16 @@ SetAnalytics.getInstance()
     screenClass: Activity,
     fragmentClass: Fragment ?
   )
+```
+
+```java Java
+SetAnalytics.getInstance()
+  .setTabEvent(
+   String tabName,
+   Int tabIndex,
+   Activity screenClass,
+   Fragment fragmentClass
+  );
 ```
 
 </CodeGroup>
@@ -294,7 +321,7 @@ Example of Tab View
 
 <CodeGroup>
 
-```javascript Kotlin
+```kotlin Kotlin
 SetAnalytics.getInstance()
   .setTabEvent(
     "tabName",          // tabName
@@ -304,17 +331,17 @@ SetAnalytics.getInstance()
   )
 ```
 
-```javascript Kotlin (without fragment)
+```kotlin Kotlin (without fragment)
 SetAnalytics.getInstance()
   .setTabEvent(
     "tabName",     // tabName
     1,             // tabIndex
     this,          // screenClass
-    null           // fragmentClass
+    null        // fragmentClass
   )
 ```
 
-```javascript Java
+```java Java
 SetAnalytics.getInstance()
   .setTabEvent(
     "tabName",          // tabName
@@ -332,12 +359,20 @@ SetAnalytics.getInstance()
 
 <CodeGroup>
 
-```javascript Kotlin / Java
+```kotlin Kotlin
 SetAnalytics.getInstance()
   .setDrawerEvent(
     screenClass: Activity,
     action: String
   )
+```
+
+```java Java
+SetAnalytics.getInstance()
+  .setDrawerEvent(
+   Activity screenClass,
+   String action
+  );
 ```
 
 </CodeGroup>
@@ -387,7 +422,7 @@ Example of Drawer
 
 <CodeGroup>
 
-```javascript Kotlin
+```kotlin Kotlin
 SetAnalytics.getInstance()
     .setDrawerEvent(
         this@MainActivity, // screenClass
@@ -395,7 +430,7 @@ SetAnalytics.getInstance()
     )
 ```
 
-```javascript Java
+```java Java
 SetAnalytics.getInstance()
     .setDrawerEvent(
         this,   // screenClass
@@ -411,13 +446,22 @@ SetAnalytics.getInstance()
 
 <CodeGroup>
 
-```javascript Kotlin / Java
+```kotlin Kotlin
 SetAnalytics.getInstance()
   .setDialogEvent(
     dialogName: String,
     action: String,
     screenClass: Activity
   )
+```
+
+```java Java
+SetAnalytics.getInstance()
+  .setDialogEvent(
+   String dialogName,
+   String action,
+   Activity screenClass
+  );
 ```
 
 </CodeGroup>
@@ -461,7 +505,7 @@ Example of Dialog
 
 <CodeGroup>
 
-```javascript Kotlin
+```kotlin Kotlin
 SetAnalytics.getInstance()
   .setDialogEvent(
     "Alert Dialog",    // dialogName
@@ -470,7 +514,7 @@ SetAnalytics.getInstance()
   )
 ```
 
-```javascript Java
+```java Java
 SetAnalytics.getInstance()
   .setDialogEvent(
     "Alert Dialog", //dialogName
@@ -487,11 +531,11 @@ SetAnalytics.getInstance()
 
 <CodeGroup>
 
-```javascript Kotlin
+```kotlin Kotlin
 // Some Code
 ```
 
-```javascript Java
+```java Java
 // Some Code
 ```
 
@@ -544,12 +588,20 @@ SetAnalytics.getInstance()
 
 <CodeGroup>
 
-```javascript Kotlin / Java
+```kotlin Kotlin
 SetAnalytics.getInstance()
   .setAppLanguage(
-    activity: Context,
+    activity: Activity,
     languageCode: String
   )
+```
+
+```java Java
+SetAnalytics.getInstance()
+  .setAppLanguage(
+    Activity activity,
+    String languageCode
+  );
 ```
 
 </CodeGroup>
@@ -588,7 +640,7 @@ Example of App Language
 
 <CodeGroup>
 
-```javascript Kotlin
+```kotlin Kotlin
 SetAnalytics.getInstance()
   .setAppLanguage(
     this, // screenClass
@@ -596,7 +648,7 @@ SetAnalytics.getInstance()
   )
 ```
 
-```javascript Java
+```java Java
 SetAnalytics.getInstance()
   .setAppLanguage(
     this, // screenClass
@@ -614,11 +666,18 @@ Call this method in `onCreate()`.
 
 <CodeGroup>
 
-```javascript Kotlin / Java
+```kotlin Kotlin
 SetAnalytics.getInstance()
   .setSplashTimeEvent(
     time: Long
   )
+```
+
+```java Java
+SetAnalytics.getInstance()
+  .setSplashTimeEvent(
+    Long time
+  );
 ```
 
 </CodeGroup>
@@ -650,11 +709,11 @@ Example of Splash Time
 
 <CodeGroup>
 
-```javascript Kotlin
+```kotlin Kotlin
 SetAnalytics.getInstance().setSplashTimeEvent(2000)
 ```
 
-```javascript Java
+```java Java
 SetAnalytics.getInstance().setSplashTimeEvent(2000);
 ```
 

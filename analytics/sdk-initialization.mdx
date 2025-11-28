@@ -2,18 +2,18 @@
 title: 'SDK Initialization'
 ---
 
-1. **Add the SDK Dependency**
+#### Add the SDK Dependency
 
 Add the following dependency to your app-level `build.gradle` file
 
 <CodeGroup>
 
-```javascript Kotlin
-implementation("io.github.twinnettechnologies:twinnet-analytics:1.0.1");
+```kotlin Kotlin
+implementation("com.twinalyze:analytics:1+")
 ```
 
-```python Java
-implementation "io.github.twinnettechnologies:twinnet-analytics:1.0.1";
+```java Java
+implementation("com.twinalyze:analytics:1+");
 ```
 
 </CodeGroup>
@@ -22,14 +22,14 @@ In your **project-level** `build.gradle` make sure the following plugins are con
 
 <CodeGroup>
 
-```javascript Kotlin
+```kotlin Kotlin
 plugins {
     id("com.android.application") version "8.2.0" apply false
     id("org.jetbrains.kotlin.android") version "1.9.10" apply false
 }
 ```
 
-```python Java
+```java Java
 plugins {
     id 'com.android.application' version '8.2.0' apply false
     id 'org.jetbrains.kotlin.android' version '1.9.10' apply false
@@ -38,41 +38,43 @@ plugins {
 
 </CodeGroup>
 
-2. **Initializing Analytics SDK in Android**
+#### Initializing Analytics SDK in Android
 
 Initialize the **SDK** in your `Application` class to start tracking sessions, events, and insights.
 
 <CodeGroup>
 
-```javascript Kotlin
+```kotlin Kotlin
 class MyApp : Application() {
     override fun onCreate() {
         super.onCreate()
-        Analytics.initialize(
+        Analytics.getInstance().initialize(
             this,
             "YOUR_API_KEY",
-            "YOUR_ORG_ID”
+            "YOUR_ORG_ID”,
+            true
         )
     }
 }
 ```
 
-```python Java
-class MyApp : Application() {
+```java Java
+class MyApp extends Application {
     override fun onCreate() {
         super.onCreate()
-        Analytics.Companion.initialize(
+        Analytics.getInstance().initialize(
             this,
             "YOUR_API_KEY",
-            "YOUR_ORG_ID”
-        )
+            "YOUR_ORG_ID”,
+            true
+        );
     }
 }
 ```
 
 </CodeGroup>
 
-<Accordion title="Parameter Reference">
+<Accordion title="Parameter Reference" defaultOpen="true">
 
 <table class="sdk-table">
   <thead>
@@ -94,38 +96,66 @@ class MyApp : Application() {
       <td>`orgId`</td>
       <td>Your organization ID (e.g. `twinnet_demo`)</td>
     </tr>
+    <tr>
+      <td>`debug`</td>
+      <td>If debug true than take a screenshot</td>
+    </tr>
   </tbody>
 </table>
  
 </Accordion>
+
+<div class="download-app">
+ <a href="https://github.com/twinalyze/twinalyze-android-food-delivery-app-demo.git" target="_blank">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+    <span class="app-name">Github Demo</span>
+  </a>
+
+  <span class="app-devider">|</span>
+
+  <a href="https://drive.google.com/drive/folders/1czFBkIDrxdkPcQRpOcrwFnjzPujvh7K7" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Android_robot.svg"  />
+    <span class="app-name">Download APK</span>
+  </a>
+
+  <span class="app-devider">|</span>
+
+  <a href="https://app.twinalyze.com/" target="_blank">
+    <img src="/s.svg"/>
+    <span class="app-name">Demo</span>
+  </a>
+</div>
+
 
 >✅ Best Practice <br/>
 Always call `initialize()` inside your `Application` class — not inside an Activity — to ensure complete session tracking.
 
 <CodeGroup>
 
-```javascript Kotlin
+```kotlin Kotlin
 class MyApp : Application() {
     override fun onCreate() {
         super.onCreate()
-        Analytics.Companion.initialize(
+        Analytics.initialize(
             this,
-            "YOUR_API_KEY",
-            "YOUR_ORG_ID"
+            "hFQUeOCopsqgdISATi5EvvSwGGM4wU7",
+            "twinalyze_demo_3498901526",
+            true
         )
     }
 }
 ```
 
-```javascript Java
-class MyApp : Application() {
+```java Java
+class MyApp extends Application {
     override fun onCreate() {
         super.onCreate()
         Analytics.Companion.initialize(
             this,
-            "YOUR_API_KEY",
-            "YOUR_ORG_ID"
-        )
+            "hFQUeOCopsqgdISATi5EvvSwGGM4wU7",
+            "twinalyze_demo_3498901526",
+            true
+        );
     }
 }
 ```

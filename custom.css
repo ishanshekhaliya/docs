@@ -129,10 +129,86 @@ tbody tr:hover {
 }
 
 .dark tbody tr:hover {
-  background-color:#2f3031;
+  background-color: #2f3031;
 }
 
 .dark code {
-    background: #222223;
+  background: #222223;
   border: none;
 }
+
+.demo-apk {
+  text-decoration: none;
+  border: none;
+  margin-left: 12px;
+  margin-right: 10px;
+  color: #346DDB;
+}
+
+.icon-github {
+  border: none;
+}
+
+.download-app {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 14px 20px;
+  background: #F9FAFB;
+  border-radius: 8px;
+  /* border: 1px solid #E5E7EB; */
+  font-size: 16px;
+  width: max-content;
+}
+
+.download-app a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #111;
+  border: none;
+}
+
+.download-app a img {
+  width: 22px;
+  height: 22px;
+  margin: 0;
+}
+
+.download-app .app-name {
+  color: #111;
+  font-weight: 400;
+}
+.download-app .app-devider {
+  color: #ccc;
+}
+
+
+#sidebar-content .group>svg {
+  /* margin-left: auto; */
+}
+
+#sidebar-content .group>div {
+  /* font-weight: 500; */
+}
+
+.sidebar-group-icon {
+  height: 19px;
+  width: 19px;
+}
+
+ul#sidebar-group {
+  margin-left: 10px;
+}
+
+/* html {
+  scroll-behavior: smooth;
+}
+
+tr:target {
+  background: #fff6d6;
+  transition: background 0.6s ease;
+} */

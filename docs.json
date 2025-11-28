@@ -16,26 +16,26 @@
           {
             "group": "INTRODUCTION",
             "pages": [
-              "what-is-analytics",
-              {
-                "group": "Quick Started",
-                "expanded": false,
-                "pages": [
-                  "quick-started/get-started",
-                  "quick-started/sdk-initialization",
-                  "quick-started/auto-manual-event-tracking",
-                  "quick-started/custom-event-tracking",
-                  "quick-started/add-event-tracking"
-                ]
-              },
-              {
-                "group": "Ad Analytics",
-                "expanded": false,
-                "pages": [
-                  "ad-analytics/ad-analytics-sdk",
-                  "ad-analytics/ad-sdk-initialization"
-                ]
-              }
+              "what-is-analytics"
+            ]
+          },
+          {
+            "group": "ANALYTICS",
+            "icon": "/logo/Analytics.svg",
+            "pages": [
+              "analytics/get-started",
+              "analytics/sdk-initialization",
+              "analytics/auto-manual-event-tracking",
+              "analytics/custom-event-tracking",
+              "analytics/add-event-tracking"
+            ]
+          },
+          {
+            "group": "AD ANALYTICS",
+            "icon": "/logo/Ads.svg",
+            "pages": [
+              "ad-analytics/ad-analytics-sdk",
+              "ad-analytics/ad-sdk-initialization"
             ]
           }
         ]
@@ -49,33 +49,27 @@
   "navbar": {
     "links": [
       {
+        "label": "System Status",
+        "href": "https://stats.uptimerobot.com/CtHHsPhHgi"
+      },
+      {
         "label": "Visit website",
-        "href": "https://app.twinalyze.com"
+        "href": "https://twinalyze.com"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Go to dashboard",
+      "label": "Dashboard",
       "href": "https://app.twinalyze.com"
     }
   },
-  "contextual": {
-    "options": [
-      "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
-    ]
-  },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/twinalyze",
+      "github": "https://github.com/twinalyze",
+      "linkedin": "https://www.linkedin.com/company/twinalyze/",
+      "youtube": "https://www.youtube.com/@twinalyze",
+      "instagram": "https://www.instagram.com/twinalyze/"
     }
   },
   "custom": {
