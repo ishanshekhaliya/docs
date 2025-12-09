@@ -186,7 +186,6 @@ tbody tr:hover {
   color: #ccc;
 }
 
-
 #sidebar-content .group>svg {
   /* margin-left: auto; */
 }
@@ -196,8 +195,8 @@ tbody tr:hover {
 }
 
 .sidebar-group-icon {
-  height: 19px;
-  width: 19px;
+  height: 16px;
+  width: 16px;
 }
 
 ul#sidebar-group {

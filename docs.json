@@ -21,7 +21,7 @@
           },
           {
             "group": "ANALYTICS",
-            "icon": "/logo/Analytics.svg",
+            "icon": "chart-line",
             "pages": [
               "analytics/get-started",
               "analytics/sdk-initialization",
@@ -32,7 +32,7 @@
           },
           {
             "group": "AD ANALYTICS",
-            "icon": "/logo/Ads.svg",
+            "icon": "tv",
             "pages": [
               "ad-analytics/ad-analytics-sdk",
               "ad-analytics/ad-sdk-initialization"
