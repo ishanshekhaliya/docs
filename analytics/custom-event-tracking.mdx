@@ -10,11 +10,11 @@ description: "Use custom event tracking to capture user actions that matter to y
 <CodeGroup>
 
 ```kotlin Kotlin
-Analytics.getInstance().setCustomEvent("addtocart", "Headphones")
+Twinalyze.setCustomEvent("addtocart")
 ```
 
 ```java Java
-Analytics.getInstance().setCustomEvent("addtocart", "Headphones");
+Twinalyze.setCustomEvent("addtocart");
 ```
 
 </CodeGroup>
@@ -25,24 +25,24 @@ Analytics.getInstance().setCustomEvent("addtocart", "Headphones");
 
 ```javascript Kotlin
 JSONObject eventProperties = new JSONObject()
-eventProperties.put("productId", "P450")
+eventProperties.put("productId", "125")
 eventProperties.put("productName", "Headphones") // Optional
 eventProperties.put("currency", "USD")          // Optional
 eventProperties.put("amount", 249.99)           // Optional
 
 // You can add more properties like userId, paymentMethod, etc.
-Analytics.getInstance().setCustomEvent("addtocart", eventProperties)
+Twinalyze.setCustomEvent("addtocart", eventProperties)
 ```
 
 ```javascript Java
 JSONObject eventProperties = new JSONObject();
-eventProperties.put("productId", "P450");
+eventProperties.put("productId", "125");
 eventProperties.put("productName", "Headphones"); // Optional
 eventProperties.put("currency", "USD");           // Optional
 eventProperties.put("amount", 249.99);            // Optional
 
 // You can add more properties like userId, paymentMethod, etc.
-Analytics.getInstance().setCustomEvent("addtocart", eventProperties);
+Twinalyze.setCustomEvent("addtocart", eventProperties);
 ```
 
 </CodeGroup>
@@ -115,7 +115,7 @@ Understand the types of data you can pass inside `eventProperties` and how to st
 ```javascript Kotlin
 val eventProps = JSONObject().apply {
     put("event", "add_to_cart") // String
-    put("productId", "PRD-9021") // String
+    put("productId", "125") // String
     put("productName", "Bluetooth Speaker X10") // String
     put("price", 129.99) // Number (Double)
     put("currency", "USD") // String
@@ -138,13 +138,13 @@ val eventProps = JSONObject().apply {
 }
 
 // Trigger the event with all custom properties
-Analytics.getInstance().setCustomEvent("ProductAddedToCart", eventProps)
+Twinalyze.setCustomEvent("addtocart", eventProps)
 ```
 
 ```javascript Java
 val eventProps = JSONObject().apply {
     put("event", "add_to_cart"); // String
-    put("productId", "PRD-9021"); // String
+    put("productId", "125"); // String
     put("productName", "Bluetooth Speaker X10"); // String
     put("price", 129.99); // Number (Double)
     put("currency", "USD"); // String
@@ -167,7 +167,7 @@ val eventProps = JSONObject().apply {
 }
 
 // Trigger the event with all custom properties
-Analytics.getInstance().setCustomEvent("ProductAddedToCart", eventProps);
+Twinalyze.setCustomEvent("addtocart", eventProps);
 ```
 
 </CodeGroup>

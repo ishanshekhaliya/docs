@@ -25,7 +25,6 @@
             "pages": [
               "analytics/get-started",
               "analytics/sdk-initialization",
-              "analytics/auto-manual-event-tracking",
               "analytics/custom-event-tracking",
               "analytics/add-event-tracking"
             ]

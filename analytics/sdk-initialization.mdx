@@ -24,15 +24,17 @@ In your **project-level** `build.gradle` make sure the following plugins are con
 
 ```kotlin Kotlin
 plugins {
-    id("com.android.application") version "8.2.0" apply false
-    id("org.jetbrains.kotlin.android") version "1.9.10" apply false
+    id("com.android.application") version "8.13.2" apply false
+    id("org.jetbrains.kotlin.android") version "2.0.21" apply false
+    id("org.jetbrains.kotlin.plugin.compose") version "2.0.21" apply false
 }
 ```
 
 ```java Java
 plugins {
-    id 'com.android.application' version '8.2.0' apply false
-    id 'org.jetbrains.kotlin.android' version '1.9.10' apply false
+    id 'com.android.application' version '8.13.2' apply false
+    id 'org.jetbrains.kotlin.android' version '2.0.21' apply false
+    id 'org.jetbrains.kotlin.plugin.compose' version '2.0.21' apply false
 }
 ```
 
@@ -45,31 +47,36 @@ Initialize the **SDK** in your `Application` class to start tracking sessions, e
 <CodeGroup>
 
 ```kotlin Kotlin
-class MyApp : Application() {
-    override fun onCreate() {
-        super.onCreate()
-        Analytics.getInstance().initialize(
-            this,
-            "YOUR_API_KEY",
-            "YOUR_ORG_ID”,
-            true
-        )
-    }
-}
+Twinalyze.initialize(this,
+   "YOUR_API_KEY",
+   "YOUR_SECRET_ID",
+   object : TwinalyzeInitializationStatus {
+       override fun onSuccess() {
+
+       }
+       override fun onFailed(twinalyzeError: TwinalyzeError) {
+
+       }
+   })
+
 ```
 
 ```java Java
-class MyApp extends Application {
-    override fun onCreate() {
-        super.onCreate()
-        Analytics.getInstance().initialize(
-            this,
-            "YOUR_API_KEY",
-            "YOUR_ORG_ID”,
-            true
-        );
-    }
-}
+Twinalyze.initialize(this,
+       "YOUR_API_KEY",
+       "YOUR_SECRET_ID",
+       new TwinalyzeInitializationStatus() {
+           @Override
+           public void onSuccess() {
+              
+           }
+           @Override
+           public void onFailed(TwinalyzeError twinalyzeError) {
+             
+           }
+       }
+);
+
 ```
 
 </CodeGroup>
@@ -90,15 +97,11 @@ class MyApp extends Application {
     </tr>
     <tr>
       <td>`apiKey`</td>
-      <td>Your Project API key</td>
+      <td>Your Api Key</td>
     </tr>
     <tr>
-      <td>`orgId`</td>
-      <td>Your organization ID (e.g. `twinalyze_demo_7356297484`)</td>
-    </tr>
-    <tr>
-      <td>`debug`</td>
-      <td>If debug true than take a screenshot</td>
+      <td>`secretKey`</td>
+      <td>Your Project Secret key</td>
     </tr>
   </tbody>
 </table>
@@ -107,7 +110,7 @@ class MyApp extends Application {
 
 <Card class="pass-card" title="Demo Account" icon="key">
   Email: info@twinalyze.com <br/>
-  Password: 123
+  Password: demo@123
 </Card>
 
 <div class="download-app">
@@ -140,31 +143,36 @@ Always call `initialize()` inside your `Application` class — not inside an Act
 <CodeGroup>
 
 ```kotlin Kotlin
-class MyApp : Application() {
-    override fun onCreate() {
-        super.onCreate()
-        Analytics.initialize(
-            this,
-            "kh2RwGFsqNr1gh1NWWExAewbvIzYyNk",
-            "twinalyze_demo_7356297484",
-            true
-        )
-    }
-}
+Twinalyze.initialize(this,
+   "4204c9d6815644247690743d26fa7d1ae8b6c210c6",
+   "c07168ab44102507311682f976863dd0cfaf62d7196c6d7d3d234353b8ec9d86",
+   object : TwinalyzeInitializationStatus {
+       override fun onSuccess() {
+
+       }
+       override fun onFailed(twinalyzeError: TwinalyzeError) {
+
+       }
+   })
+
 ```
 
 ```java Java
-class MyApp extends Application {
-    override fun onCreate() {
-        super.onCreate()
-        Analytics.Companion.initialize(
-            this,
-            "kh2RwGFsqNr1gh1NWWExAewbvIzYyNk",
-            "twinalyze_demo_7356297484",
-            true
-        );
-    }
-}
+Twinalyze.initialize(this,
+       "4204c9d6815644247690743d26fa7d1ae8b6c210c6",
+       "c07168ab44102507311682f976863dd0cfaf62d7196c6d7d3d234353b8ec9d86",
+       new TwinalyzeInitializationStatus() {
+           @Override
+           public void onSuccess() {
+              
+           }
+           @Override
+           public void onFailed(TwinalyzeError twinalyzeError) {
+             
+           }
+       }
+);
+
 ```
 
 </CodeGroup>

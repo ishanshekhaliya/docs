@@ -40,29 +40,12 @@ description: "Track detailed ad lifecycle events such as request, load, show, cl
       </td>
     </tr>
     <tr>
-      <td>`AdsAction`</td>
-      <td>What happened with the ad</td>
-      <td class="third">
-      <div>
-         <div>`AdsAction.Request`</div>
-         <div>`AdsAction.Loaded`</div>
-         <div>`AdsAction.Show`</div>
-        </div>
-        <div>`AdsAction.Failed`</div>
-        <div> 
-           <div>`AdsAction.FailedOther`</div>
-           <div>`AdsAction.Click`</div>
-         </div>
-      
-      </td>
-    </tr>
-    <tr>
-      <td>`context`</td>
+      <td>`activityFullName`</td>
       <td>Your activity class</td>
       <td>`"com.analytics.test.MainActivity"`</td>
     </tr>
     <tr id="param-adid">
-      <td>`adId`</td>
+      <td>`adUnitId`</td>
       <td>Your ad unit ID</td>
       <td>`"ca-app-pub-3940256099942544/9214589741"`</td>
     </tr>
@@ -82,26 +65,22 @@ description: "Track detailed ad lifecycle events such as request, load, show, cl
 <CodeGroup>
 
 ```kotlin Kotlin
-Analytics.getInstance()
-    .setAdsRequestEvent(
+Twinalyze.setAdsRequestEvent(
         AdsCompany.Admob,
         AdsType.Interstitial,
-        AdsAction.Request,
-        context,
-         adId, // [adId](#param-adid)
-        uniqId
+        activityFullName: string,
+        adUnitId: String,
+        uniqId: String
     )
 ```
 
 ```java Java
-Analytics.getInstance()
-    .setAdsRequestEvent(
+Twinalyze.setAdsRequestEvent(
         AdsCompany.Admob,
         AdsType.Interstitial,
-        AdsAction.Request,
-        context,
-        adId,
-        uniqId
+        activityFullName: string,
+        adUnitId: String,
+        uniqId: String
     );
 ```
 
@@ -113,99 +92,22 @@ Analytics.getInstance()
 <CodeGroup>
 
 ```kotlin Kotlin
-Analytics.getInstance()
-    .setAdsLoadEvent(
+Twinalyze.setAdsLoadedEvent(
         AdsCompany.Admob,
         AdsType.Interstitial,
-        AdsAction.Loaded,
-        context,
-        adId,
-        uniqId
+        activityFullName: string,
+        adUnitId: String,
+        uniqId: String
     )
 ```
 
 ```java Java
-Analytics.getInstance()
-    .setAdsLoadEvent(
+Twinalyze.setAdsLoadedEvent(
         AdsCompany.Admob,
         AdsType.Interstitial,
-        AdsAction.Loaded,
-        context,
-        adId,
-        uniqId
-    );
-```
-
-</CodeGroup>
-
-### Ad Failed 
-   Captures load/show errors with error codes and messages.
-
-<CodeGroup>
-
-```kotlin Kotlin
-Analytics.getInstance()
-    .setAdsFailedEvent(
-            AdsCompany.Admob,
-            AdsType.Interstitial, 
-            AdsAction.Failed,
-            context,
-            adId,
-            uniqId,
-            null,
-            loadAdError == null ? Constant.not_found : String.valueOf(loadAdError.getCode()),
-            loadAdError.getMessage() == null ? Constant.not_found : loadAdError.getMessage()
-        )
-```
-
-```java Java
-Analytics.getInstance()
-    .setAdsFailedEvent(
-            AdsCompany.Admob,
-            AdsType.Interstitial, 
-            AdsAction.Failed,
-            context,
-            adId,
-            uniqId,
-            null,
-            loadAdError == null ? Constant.not_found : String.valueOf(loadAdError.getCode()),
-            loadAdError.getMessage() == null ? Constant.not_found : loadAdError.getMessage()
-        );
-```
-
-</CodeGroup>
-   
-
-### Ad Failed Other  
-   Captures load/show errors with error codes and messages. As an example: onAdFailedToShowFullScreenContent.
-
-<CodeGroup>
-
-```kotlin Kotlin
-Analytics.getInstance()
-    .setAdsFailedEvent(
-        AdsCompany.Admob,
-        AdsType.Interstitial,
-        AdsAction.FailedOther,
-        context,adManagerInterstitialAd.getAdUnitId() == null ?
-        Constant.not_found : adManagerInterstitialAd.getAdUnitId(),
-        uniqId, null,
-        String.valueOf(adError.getCode()),
-        adError.getMessage()
-    )
-```
-
-```java Java
-Analytics.getInstance()
-    .setAdsFailedEvent(
-        AdsCompany.Admob,
-        AdsType.Interstitial,
-        AdsAction.FailedOther,
-        context,adManagerInterstitialAd.getAdUnitId() == null ?
-        Constant.not_found : adManagerInterstitialAd.getAdUnitId(),
-        uniqId, null,
-        String.valueOf(adError.getCode()),
-        adError.getMessage()
+        activityFullName: string,
+        adUnitId: String,
+        uniqId: String
     );
 ```
 
@@ -218,33 +120,28 @@ Analytics.getInstance()
 <CodeGroup>
 
 ```kotlin Kotlin
-Analytics.getInstance()
-    .setAdsImpressionEvent(
+Twinalyze.setAdsImpressionEvent(
         AdsCompany.Admob,
         AdsType.Interstitial,
-        AdsAction.Show,
-        context,
-        adManagerInterstitialAd.getAdUnitId(),
-        uniqId,
-        null
+        activityFullName: string,
+        adUnitId: String,
+        uniqId: String,
+        bannerImpressionCount: String ?= null
     )
 ```
 
 ```java Java
-Analytics.getInstance()
-    .setAdsImpressionEvent(
+Twinalyze.setAdsImpressionEvent(
         AdsCompany.Admob,
         AdsType.Interstitial,
-        AdsAction.Show,
-        context,
-        adManagerInterstitialAd.getAdUnitId(),
-        uniqId,
-        null
+        activityFullName: string,
+        adUnitId: String,
+        uniqId: String,
+        bannerImpressionCount: String ?= null
     );
 ```
 
 </CodeGroup>
-
 
 ### Ad Click  
    Tracks user clicks on the ad.
@@ -252,33 +149,95 @@ Analytics.getInstance()
 <CodeGroup>
 
 ```kotlin Kotlin
-Analytics.getInstance()
-    .setAdsClickEvevnt(
+Twinalyze.setAdsClickEvent(
         AdsCompany.Admob,
         AdsType.Interstitial,
-        AdsAction.Click,
-        context,
-        adManagerInterstitialAd.getAdUnitId(),
-        uniqId,
-        null
+        activityFullName: string,
+        adUnitId: String,
+        uniqId: String,
+        bannerImpressionCount: String ?= null
     )
 ```
 
 ```java Java
-Analytics.getInstance()
-    .setAdsClickEvevnt(
+Twinalyze.setAdsClickEvent(
         AdsCompany.Admob,
         AdsType.Interstitial,
-        AdsAction.Click,
-        context,
-        adManagerInterstitialAd.getAdUnitId(),
-        uniqId,
-        null
+        activityFullName: string,
+        adUnitId: String,
+        uniqId: String,
+        bannerImpressionCount: String ?= null
     );
 ```
 
 </CodeGroup>
 
+### Ad Failed 
+   Captures load/show errors with error codes and messages.
+
+<CodeGroup>
+
+```kotlin Kotlin
+Twinalyze.setAdFailedToLoadEvent(
+        AdsCompany.Admob,
+        AdsType.Interstitial,
+        activityFullName: string,
+        adUnitId: String,
+        uniqId: String,
+        bannerImpressionCount: String ?= null,
+        errorCode: String,
+        errorMessage: String
+    )
+```
+
+```java Java
+Twinalyze.setAdFailedToLoadEvent(
+        AdsCompany.Admob,
+        AdsType.Interstitial,
+        activityFullName: string,
+        adUnitId: String,
+        uniqId: String,
+        bannerImpressionCount: String ?= null,
+        errorCode: String,
+        errorMessage: String
+    );
+```
+
+</CodeGroup>
+   
+
+### Ad Failed Other  
+   Captures load/show errors with error codes and messages. As an example: onAdFailedToShowFullScreenContent.
+
+<CodeGroup>
+
+```kotlin Kotlin
+Twinalyze.setAdFailedToShowEvent(
+        AdsCompany.Admob,
+        AdsType.Interstitial,
+        activityFullName: string,
+        adUnitId: String,
+        uniqId: String,
+        bannerImpressionCount: String ?= null,
+        errorCode: String,
+        errorMessage: String
+    )
+```
+
+```java Java
+Twinalyze.setAdFailedToShowEvent(
+        AdsCompany.Admob,
+        AdsType.Interstitial,
+        activityFullName: string,
+        adUnitId: String,
+        uniqId: String,
+        bannerImpressionCount: String ?= null,
+        errorCode: String,
+        errorMessage: String
+    );
+```
+
+</CodeGroup>
 
 ### Ad Paid Event  
    Records revenue data only uses AdMob (micros, currency, precision).
@@ -286,32 +245,30 @@ Analytics.getInstance()
 <CodeGroup>
 
 ```kotlin Kotlin
-Analytics.getInstance()
-    .setAdsPaidEvent(
+Twinalyze.setAdsPaidEvent(
         AdsCompany.Admob,
         AdsType.Interstitial,
-        context,
-        adManagerInterstitialAd.getAdUnitId(),
-        uniqId,
-        null,
-        adValue.getCurrencyCode(),
-        String.valueOf(adValue.getPrecisionType()),
-        String.valueOf(adValue.getValueMicros())
+        activityFullName: string,
+        adUnitId: String,
+        uniqId: String,
+        bannerImpressionCount: String ?= null,
+        currencyCode: String,
+        precisionType: String,
+        valueMicros: String
     )
 ```
 
 ```java Java
-Analytics.getInstance()
-    .setAdsPaidEvent(
+Twinalyze.setAdsPaidEvent(
         AdsCompany.Admob,
         AdsType.Interstitial,
-        context,
-        adManagerInterstitialAd.getAdUnitId(),
-        uniqId,
-        null,
-        adValue.getCurrencyCode(),
-        String.valueOf(adValue.getPrecisionType()),
-        String.valueOf(adValue.getValueMicros())
+        activityFullName: string,
+        adUnitId: String,
+        uniqId: String,
+        bannerImpressionCount: String ?= null,
+        currencyCode: String,
+        precisionType: String,
+        valueMicros: String
     );
 ```
 
